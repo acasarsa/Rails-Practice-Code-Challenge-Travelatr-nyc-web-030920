@@ -1,0 +1,10 @@
+<h1>Destinations</h1>
+Posts:
+<ol>
+<%@destination.posts.last(5).each do |post|%>
+    <li><%=link_to post.title, post_path(post)%></li><br>
+<%end%> 
+</ol>
+
+
+
