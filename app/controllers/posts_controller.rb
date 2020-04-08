@@ -1,11 +1,18 @@
 class PostsController < ApplicationController
-  before_action :find_post, only: [:show, :edit, :update]
+  before_action :find_post, only: [:show, :edit, :update, :likes]
 
   def show
   end
 
   def new
     @post = Post.new
+  end
+
+  def likes #patch route 
+    # byebug
+    @post.increment!(:likes)  #increases integer attribute by 1 
+                              #! saves the changes for the redirect_to
+    redirect_to @post
   end
 
   def create
@@ -29,6 +36,8 @@ class PostsController < ApplicationController
     redirect_to edit_post_path(@post)
     end
   end
+
+
 
   private
 

@@ -1,7 +1,9 @@
-<br><h1><%= @post.title %></h1></br>
-<br><h1><%=@post.content%></h1></br>
+<h1><%= @post.title.titleize %></h1>
+<h3><%=@post.content%></h3>
 
-<br><%=link_to @post.blogger.name, blogger_path(@post.blogger)%><br>
-<br><%=link_to @post.destination.name, destination_path(@post.destination)%><br>
+Blogger: <%= link_to @post.blogger.name, blogger_path(@post.blogger) %><br>
+Destination: <%=link_to @post.destination.name, destination_path(@post.destination)%><br><br>
 Likes: <%= @post.likes %>
-<br><%=button_to "Add Like", post_path, method: :get%><br> 
+<%= button_to "Like", likes_post_path, method: :patch %>
+
+
