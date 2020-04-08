@@ -1,4 +1,7 @@
 <h1><%= @blogger.name %></h1>
 <% @blogger.posts.each do |post|%>
     <%= link_to post.title, post %> - <%= post.likes %><br>
-    <% end %>
+<% end %>
+
+<h2>##### Featured Post #####</h2>
+<%= link_to @blogger.most_popular_post.title, @blogger %>
