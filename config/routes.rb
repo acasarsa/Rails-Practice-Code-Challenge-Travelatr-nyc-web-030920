@@ -3,10 +3,9 @@ Rails.application.routes.draw do
 
   # get 'po
 resources :bloggers, only: [:new, :create, :show]
-resources :posts, only: [:show, :new, :create, :edit, :update]
 resources :destinations, only: :show 
 # new custom route below: 
-resources :posts do
+resources :posts, except: [:destroy, :index] do
   patch :likes, on: :member
   # creates likes_post_path 
   # witout on: :member you can only find it's posts_id like: 
